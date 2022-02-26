@@ -37,7 +37,8 @@ function buildBody(data, i) {
             })
         ).append(
             $("<td />", {
-                text: data.time
+                // text: new Date(data.time)
+                text: dateTime(new Date(data.time))
             })
         ).append(
             $("<td />", {
@@ -45,4 +46,15 @@ function buildBody(data, i) {
             })
         )
     );
+}
+
+function dateTime(date) {
+    var year = date.getFullYear();
+    var month = date.getMonth();
+    var day = date.getDate();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var second = date.getSeconds();
+    var text = day + "/" + month + "/" + year + " : " + hours + ":" + minutes + ":" + second;
+    return text;
 }
